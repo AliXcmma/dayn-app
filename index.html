@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Dayn</title>
+    <!-- Official Telegram Mini App script: provides window.Telegram.WebApp -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+      // Plain script on purpose: it still runs if the app's code can't.
+      // Tell Telegram the page loaded, so its loading screen never hides an error.
+      if (window.Telegram) window.Telegram.WebApp.ready()
+      // If the app fails to start, show the reason instead of an empty screen.
+      function showStartupError(reason) {
+        var root = document.getElementById('root')
+        if (!root || root.childElementCount > 0) return
+        var box = document.createElement('pre')
+        box.className = 'startup-error'
+        box.textContent = 'Dayn could not start.\n\n' + reason + '\n\n' + navigator.userAgent
+        root.appendChild(box)
+      }
+      window.addEventListener('error', function (e) { showStartupError(e.error || e.message) })
+      window.addEventListener('unhandledrejection', function (e) { showStartupError(e.reason) })
+    </script>
+    <script type="module" crossorigin src="./assets/index-k_8XyeTa.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-PpqMrxDE.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
